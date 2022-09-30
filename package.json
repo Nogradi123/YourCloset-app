@@ -1,0 +1,31 @@
+{
+  "name": "YourCloset-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^8.6.0",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "hbs": "^4.1.1",
+    "mongodb": "^4.10.0",
+    "mongoose": "^6.1.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.8.0",
+    "serve-favicon": "^2.5.0",
+    "session": "^0.1.0"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.2.1",
+    "jquery": "^3.6.1",
+    "nodemon": "^2.0.7",
+    "popper.js": "^1.16.1"
+  }
+}

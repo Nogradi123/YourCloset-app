@@ -1,0 +1,16 @@
+@import '~bootstrap/css/bootstrap';
+
+body {
+  margin: 0;
+  padding: 50px;
+  font-family:'Bungee Spice';
+  background-color:  white;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.nav-link {
+  color: white;
+}

@@ -1,0 +1,28 @@
+
+
+<h1>User Profile</h1>
+
+<h4 class = 'username'>
+    Username: 
+    <p>{{theUser.username}}</p>
+</h4>
+
+<br><br>
+<h4>Want to change your password?
+    <a class = "chg-pass"href="/change-password">Click Here</a>
+</h4>
+<br><br>
+<div>
+    <h4>Your Movie Favorites:</h4>
+    <br>
+    <hr>
+    {{#each theUser.likes}}
+        <h3>Title: {{title}}</h3>
+        <h3>Genre: {{genre}}</h3>
+    {{/each}}
+</div>
+
+
+
+
+

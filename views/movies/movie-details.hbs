@@ -1,0 +1,31 @@
+<h2>Movie Details</h2>
+
+<div>
+   
+        <h3>title: {{movie.title}}</h3>
+        <h3>genre: {{movie.genre}}</h3>
+        <h3>plot: {{movie.plot}}</h3>
+        <h5>Number of likes: {{likes}}</h5>
+        <hr>
+        <h3>Cast:</h3>
+        {{#each movie.cast}}
+            <br>
+            <h3>Name: {{name}}</h3>
+            <h3>Occupation: {{occupation}}</h3>
+            <h3>Catch Phrase: {{catchPhrase}}</h3>
+        {{/each}}
+</div>
+
+{{#if theUser}}
+<form action="{{id}}" method="post">
+    <button>Delete This Movie</button>
+</form>
+<br>
+<form action="{{movie.id}}/edit" method="get">
+    <button>Edit</button>
+</form>
+<br>
+<form action="/like/{{movie.id}}" method="post">
+    <button>💔</button>
+</form>
+{{/if}}
