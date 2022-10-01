@@ -1,21 +1,22 @@
 const { default: mongoose, SchemaType } = require("mongoose");
-const { boolean } = require("webidl-conversions");
-
-
 const {Schema, model} = mongoose;
 
 const itemSchema  = new Schema ({
     itemName: String,
+    image: String,
     type: {
         type: String,
         enum: ["Top", "Bottom", "Footwear"]
     },
-    size: String,
+    size: Number,
     brand: String,
     color: String, 
     description: String,
-    available: Boolean,
-    category: {type: [{type: Schema.Types.ObjectId, ref:'Outfit'}]},
+    category: {
+        type: [String],
+        enum: ["Casual", "Activewear", "Going Out", "Work", "Formal"]
+    },
+    owner: {type: [{type: Schema.Types.ObjectId, ref:'User'}]},
     
 }, {
     timestamps: true

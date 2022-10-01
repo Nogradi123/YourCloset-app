@@ -1,0 +1,78 @@
+
+<h2 class="new-celeb">Add a New Item</h2>
+<br>
+<form class= "new-item-form"action="/items/create" method="post" enctype="multipart/form-data">
+
+    <label>
+        Item Name: 
+        <input type="text" name="itemName">
+    </label>
+    <br>
+    <label>
+        Image: 
+        <input type="file" name="itemIMG">
+    </label>
+    <br>
+
+    <label>Type of Item:</label>
+
+    <select name="type">
+        <option value="Top">Top</option>
+        <option value="Bottom">Bottom</option>
+        <option value="Footwear">Footwear</option>
+      
+    </select>
+    
+    <label>
+        Size: 
+        <input type="number" name="size">
+    </label>
+    <br>
+    <label>
+        Brand:
+        <input type="text" name="brand">
+    </label>
+    <br>
+    <label>
+        Color:
+        <input type="text" name="color">
+    </label>
+    <br>
+    <label>
+        Description:
+        <input type="text" name="description" placeholder="I got a hole in this...">
+    </label>
+    <br>
+    <label>Category:</label>
+    <br>
+    <div> 
+
+
+    <label>
+        <input type="checkbox" name="category" value="Casual"> Casual
+    </label><br>
+    
+    <label>
+        <input type="checkbox" name="category" value="Activewear"> Activewear
+    </label><br>
+    
+    <label>
+        <input type="checkbox" name="category" value="Going Out"> Going Out
+    </label><br>
+    
+    <label>
+        <input type="checkbox" name="category" value="Work"> Work
+    </label><br>
+    
+    <label>
+        <input type="checkbox" name="category" value="Formal"> Formal
+    </label><br>
+
+
+    </div>
+    
+    <br>
+    <button>Submit</button>
+</form>
+
+

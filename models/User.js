@@ -3,16 +3,17 @@ const { Schema, model } = mongoose;
 
 const userSchema = new Schema ({
    
-    
+    userphoto: String,
+    username: String,
     password: String,
     email: String,
     likes:  [
-        { type: Schema.Types.ObjectId, ref: 'Item'}
+        { type: Schema.Types.ObjectId, ref: 'Outfit'}
     ]
 }, {
     timestamps: true
 })
 
 const User = model('User', userSchema);
-// by putting 'Animal' as the first argument here it tells mongo DB to create a collection called animals 
+
 module.exports = User;

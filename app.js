@@ -56,19 +56,14 @@ app.use(
 
 // 👇 Start handling routes here
 const index = require('./routes/index');
-const celebritiesRoute = require('./routes/celebrities.js');
-const moviesRoute = require('./routes/movies.js');
+const itemsRoute = require('./routes/items.js');
+const outfitsRoute = require('./routes/outfits.js');
 const authroutes = require('./routes/authroutes');
 
-
-
 app.use('/', index);
-app.use('/celebrities', celebritiesRoute);
-app.use('/movies', moviesRoute);
+app.use('/items', itemsRoute);
+app.use('/outfits', outfitsRoute);
 app.use('/', authroutes)
-
-
-
 
 
 

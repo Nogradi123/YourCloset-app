@@ -2,9 +2,10 @@
 
 body {
   margin: 0;
-  padding: 50px;
   font-family:'Bungee Spice';
-  background-color:  white;
+  background-color:  rgba(11, 126, 116, 0.716);
+  color: pink;
+  font-family:monospace;
 }
 
 .navbar-brand {

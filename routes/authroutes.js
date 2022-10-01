@@ -48,7 +48,7 @@ router.get('/login', (req, res, next)=>{
           req.session.currentlyLoggedIn = resultFromDB;
 
           req.flash('success', 'Successfully Logged In as ' + resultFromDB.username);
-          res.redirect('/profile');
+          res.redirect('/items/items');
           return;
         } else {
           req.flash('error', 'this username/password combination could not be authenticated. please try again');

@@ -1,0 +1,17 @@
+<h2>Your Movie List</h2>
+
+<div id="movie-list">
+    {{#each movies}}
+        
+        <h3>Occasion: {{this.occasion}}</h3>
+        <a href="{{id}}">Details</a>
+   
+    {{/each}}
+
+</div>
+
+{{#if theUser}}
+<form action="/like/{{movie.id}}" method="post">
+    <button>💔</button>
+</form>
+{{/if}}

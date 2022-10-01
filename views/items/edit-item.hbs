@@ -1,0 +1,105 @@
+<h2>Edit Item</h2>
+
+<form action="/items/{{id}}/edit" method="post">
+
+<label>
+    Item Name:
+    <input type="text" name="itemName" value="{{name}}">
+</label>
+<br>
+<label>
+    Image:
+    <input type="file" name="itemIMG" value="{{items.itemIMG}}">
+</label>
+<br>
+<label>
+    Size:
+    <input type="number" name="size" value="{{items.size}}">
+</label>
+<br>
+<label>
+    Brand:
+    <input type="text" name="brand" value="{{items.brand}}">
+</label>
+<br>
+<label>
+    Color:
+    <input type="text" name="color" value="{{items.color}}">
+</label>
+<br>
+<label>
+    Description:
+    <input type="text" name="description"  value="{{item.description}}">
+</label>
+<br>
+<label>Category:</label>
+<br>
+<div>
+
+    {{#if Casual}}
+    <label>
+        Casual
+        <input type="checkbox" name="category" value="true" checked="checked">
+    </label>
+    {{else}}
+    <label>
+        Casual
+        <input type="checkbox" name="category" value="true">
+    </label>
+    {{/if}}
+    
+    {{#if Activewear}}
+    <label>
+        Activewear
+        <input type="checkbox" name="category" value="true" checked="checked">
+    </label>
+    {{else}}
+    <label>
+        Activewear
+        <input type="checkbox" name="category" value="true">
+    </label>
+    {{/if}}
+    
+    {{#if Goingout}}
+    <label>
+        Going Out
+        <input type="checkbox" name="category" value="true" checked="checked">
+    </label>
+    {{else}}
+    <label>
+        Going Out
+        <input type="checkbox" name="category" value="true">
+    </label>
+    {{/if}}
+
+    {{#if Work}}
+    <label>
+        Work
+        <input type="checkbox" name="category" value="true" checked="checked">
+    </label>
+    {{else}}
+    <label>
+        Work
+        <input type="checkbox" name="category" value="true">
+    </label>
+    {{/if}}
+
+    {{#if Formal}}
+    <label>
+        Formal
+        <input type="checkbox" name="category" value="true" checked="checked">
+    </label>
+    {{else}}
+    <label>
+        Formal
+        <input type="checkbox" name="category" value="true">
+    </label>
+    {{/if}}
+
+
+
+</div>
+
+<br>
+<button>Edit Item</button>
+</form>
