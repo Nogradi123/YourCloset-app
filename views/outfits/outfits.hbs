@@ -1,11 +1,10 @@
-<h2>Your Movie List</h2>
+<h2>Your Outfits</h2>
 
-<div id="movie-list">
-    {{#each movies}}
-        
-        <h3>Occasion: {{this.occasion}}</h3>
-        <a href="{{id}}">Details</a>
-   
+{{!-- <div>
+    {{#each items}}
+        <img width="250px" src="{{image}}">
+        <h3>Name: {{this.itemName}}</h3>
+        <h3>Category: {{this.category}}</h3>
     {{/each}}
 
 </div>
@@ -14,4 +13,4 @@
 <form action="/like/{{movie.id}}" method="post">
     <button>💔</button>
 </form>
-{{/if}}
+{{/if}} --}}

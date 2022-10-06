@@ -7,56 +7,54 @@ const User = require('../models/User');
 
 router.get('/create', (req, res, next) => {
     
-    Outfit.find()
-    .then((celebritiesFromDb) => {
-        console.log({celebritiesFromDb})
+    Item.find(req.params.id)
+    .then((itemsFromDb) => {
 
         data = {
-            celebrities: celebritiesFromDb
+            items: itemsFromDb
         }
 
-        res.render('movies/new-movie', data)
+        res.render('outfits/outfit-details', data)
     }).catch((err) => {
-        res.redirect('/movies/new-movie')
+        res.redirect('/outfits')
     })
 })
 
-router.post('/create', (req,res,next) => {
-    console.log(req.body)
+// router.post('/create', (req,res,next) => {
+//     console.log(req.body)
 
-    const moviesToCreate = {
-        title: req.body.title,
-        genre: req.body.genre,
-        plot: req.body.plot, 
-        cast: req.body.cast
-    }
+//     const itemsToCreate = {
+//         title: req.body.title,
+//         genre: req.body.genre,
+//         plot: req.body.plot, 
+//         cast: req.body.cast
+//     }
 
 
-    Item.create(moviesToCreate).then(newlyCreatedMovie => {
-        // console.log(newlyCreatedMovie)
+//     Item.create(moviesToCreate).then(newlyCreatedMovie => {
+//         // console.log(newlyCreatedMovie)
         
-        res.redirect('/movies/movies')
-    }).catch((err) => {
-        console.log({err})
-    })
-})
+//         res.redirect('/outfits/create')
+//     }).catch((err) => {
+//         console.log({err})
+//     })
+// })
 
-router.get('/movies', (req,res,next) => {
+router.get('/outfits', (req,res,next) => {
     // console.log({query: req.query})
-    
-    Item.find()
-    .then((moviesFromDb) => {
-        // console.log({moviesFromDb})
-
-
+   
+    Item.find(req.params.id)
+    .then((itemsFromDb) => {
+        
         data = {
-            movies: moviesFromDb,
-        }
-
-        res.render('movies/movies', data)
+            items: itemsFromDb
+         }
+    
+        res.render('outfits/outfits', data)
     }).catch((err) => {
         console.log(err)
-    })
+        res.redirect('/outfits')
+     })
 })
 
  router.get('/:id', (req,res,next) => {

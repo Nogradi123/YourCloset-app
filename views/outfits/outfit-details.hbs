@@ -1,20 +1,19 @@
 <h2>Outfit Details</h2>
 
 <div>
-   
-        <h3>Top: {{movie.title}}</h3>
-        <h3>Bottom: {{movie.genre}}</h3>
-        <h3>Shoe: {{movie.plot}}</h3>
-      
-        <hr>
-        <h3>Cast:</h3>
-        {{#each movie.cast}}
-            <br>
-            <h3>Name: {{name}}</h3>
-            <h3>Occupation: {{occupation}}</h3>
-            <h3>Catch Phrase: {{catchPhrase}}</h3>
-        {{/each}}
+    {{#each items}}
+        <img width="250px" src="{{image}}">
+        <h3>Name: {{this.itemName}}</h3>
+        <h3>Category: {{this.category}}</h3>
+    {{/each}}
+
 </div>
+
+{{!-- {{#if theUser}}
+<form action="/like/{{movie.id}}" method="post">
+    <button>💔</button>
+</form>
+{{/if}}
 
 {{#if theUser}}
 <form action="{{id}}" method="post">
@@ -28,4 +27,4 @@
 <form action="/like/{{movie.id}}" method="post">
     <button>💔</button>
 </form>
-{{/if}}
+{{/if}} --}}

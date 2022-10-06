@@ -44,7 +44,7 @@ router.get('/items', (req,res,next) => {
             items: itemsFromDb,
             
         }
-        console.log({data})
+        
         res.render('items/items', data)
     }).catch((err) => {
         console.log(err)
