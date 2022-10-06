@@ -1,7 +1,7 @@
 
 <h2 class="new-celeb">Add a New Item</h2>
 <br>
-<form class= "new-item-form"action="/items/create" method="post" enctype="multipart/form-data">
+<form class= "new-item-form" action="/items/create" method="post" enctype="multipart/form-data">
 
     <label>
         Item Name: 
@@ -17,15 +17,18 @@
     <label>Type of Item:</label>
 
     <select name="type">
-        <option value="Top">Top</option>
+        {{#each type}} 
+            <option value="{{this}}">{{this}}</option>
+        {{/each}}
+        {{!-- <option value="Top">Top</option>
         <option value="Bottom">Bottom</option>
-        <option value="Footwear">Footwear</option>
+        <option value="Footwear">Footwear</option> --}}
       
     </select>
     
     <label>
         Size: 
-        <input type="number" name="size">
+        <input type="text" name="size">
     </label>
     <br>
     <label>

@@ -6,9 +6,9 @@ const itemSchema  = new Schema ({
     image: String,
     type: {
         type: String,
-        enum: ["Top", "Bottom", "Footwear"]
+        enum: ["T-Shirt", "Footwear", "Jewelry", "Dress", "Short", "Skirt", "Romper", "Jacket", "Coat", "Sweater", "Pant", "Jean", "Accessories"]
     },
-    size: Number,
+    size: String,
     brand: String,
     color: String, 
     description: String,
@@ -16,7 +16,7 @@ const itemSchema  = new Schema ({
         type: [String],
         enum: ["Casual", "Activewear", "Going Out", "Work", "Formal"]
     },
-    owner: {type: [{type: Schema.Types.ObjectId, ref:'User'}]},
+    owner: {type: Schema.Types.ObjectId, ref:'User'},
     
 }, {
     timestamps: true

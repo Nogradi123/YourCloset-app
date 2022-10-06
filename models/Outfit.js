@@ -6,7 +6,7 @@ const outfitSchema = new Schema ({
     image:  [
         { type: Schema.Types.ObjectId, ref: 'Item'},
     ],
-    occasion:  [
+    category:  [
         { type: Schema.Types.ObjectId, ref: 'Item'},
     ], 
 }, {
