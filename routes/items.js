@@ -11,7 +11,6 @@ router.get('/create', (req, res, next) => {
 
 router.post('/create', uploadMiddleware.single("itemIMG"), (req, res, next) => {
     console.log (req.session.currentlyLoggedIn._id)
-    console.log("path", req.file.path)
         const newItem = {
             itemName: req.body.itemName,
             type: req.body.type,
@@ -63,7 +62,7 @@ router.get('/:id/edit', (req, res, next) => {
 }).catch(err => {console.log({err})});
 })
 
-router.post('/items/:id', (req, res, next)=>{
+router.post('/update/:id', (req, res, next)=>{
     Items.findByIdAndUpdate(req.params.id, {
         itemName: req.body.itemName,
         type: req.body.type,
@@ -71,11 +70,11 @@ router.post('/items/:id', (req, res, next)=>{
         brand: req.body.brand,
         color: req.body.color,
         description: req.body.description,
-        category: req.body.category
+        category: req.body.category,
         
     }).then(()=>{
         
-        res.redirect('/items/items'+ req.params.id);
+        res.redirect('/items/items');
 
     }).catch((err)=>{
         console.log(err);

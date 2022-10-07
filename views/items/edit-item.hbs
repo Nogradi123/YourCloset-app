@@ -1,35 +1,30 @@
 <h2>Edit Item</h2>
 
-<form action="/items/{{id}}/edit" method="post">
+<form action="/items/update/{{id}}" method="post">
 
 <label>
     Item Name:
-    <input type="text" name="itemName" value="{{name}}">
-</label>
-<br>
-<label>
-    Image:
-    <input type="file" name="itemIMG" value="{{items.itemIMG}}">
+    <input type="text" name="itemName" value="{{itemName}}">
 </label>
 <br>
 <label>
     Size:
-    <input type="number" name="size" value="{{items.size}}">
+    <input type="text" name="size" value="{{size}}">
 </label>
 <br>
 <label>
     Brand:
-    <input type="text" name="brand" value="{{items.brand}}">
+    <input type="text" name="brand" value="{{brand}}">
 </label>
 <br>
 <label>
     Color:
-    <input type="text" name="color" value="{{items.color}}">
+    <input type="text" name="color" value="{{color}}">
 </label>
 <br>
 <label>
     Description:
-    <input type="text" name="description"  value="{{item.description}}">
+    <input type="text" name="description"  value="{{description}}">
 </label>
 <br>
 <label>Category:</label>
@@ -39,60 +34,60 @@
     {{#if Casual}}
     <label>
         Casual
-        <input type="checkbox" name="category" value="true" checked="checked">
+        <input type="checkbox" name="category" value="Casual" checked="checked">
     </label>
     {{else}}
     <label>
         Casual
-        <input type="checkbox" name="category" value="true">
+        <input type="checkbox" name="category" value="Casual">
     </label>
     {{/if}}
     
     {{#if Activewear}}
     <label>
         Activewear
-        <input type="checkbox" name="category" value="true" checked="checked">
+        <input type="checkbox" name="category" value="Activewear" checked="checked">
     </label>
     {{else}}
     <label>
         Activewear
-        <input type="checkbox" name="category" value="true">
+        <input type="checkbox" name="category" value="Activewear">
     </label>
     {{/if}}
     
     {{#if Goingout}}
     <label>
         Going Out
-        <input type="checkbox" name="category" value="true" checked="checked">
+        <input type="checkbox" name="category" value="Going Out" checked="checked">
     </label>
     {{else}}
     <label>
         Going Out
-        <input type="checkbox" name="category" value="true">
+        <input type="checkbox" name="category" value="Going Out">
     </label>
     {{/if}}
 
     {{#if Work}}
     <label>
         Work
-        <input type="checkbox" name="category" value="true" checked="checked">
+        <input type="checkbox" name="category" value="Work" checked="checked">
     </label>
     {{else}}
     <label>
         Work
-        <input type="checkbox" name="category" value="true">
+        <input type="checkbox" name="category" value="Work">
     </label>
     {{/if}}
 
     {{#if Formal}}
     <label>
         Formal
-        <input type="checkbox" name="category" value="true" checked="checked">
+        <input type="checkbox" name="category" value="Formal" checked="checked">
     </label>
     {{else}}
     <label>
         Formal
-        <input type="checkbox" name="category" value="true">
+        <input type="checkbox" name="category" value="Formal">
     </label>
     {{/if}}
 

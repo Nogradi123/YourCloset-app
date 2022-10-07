@@ -52,6 +52,11 @@ app.use(
     next();
   })
 
+  // app.use((req,res,next)=> {
+  //   res.locals.currentUser = req.session.theUser
+  //   next();
+  // })
+
 
 const index = require('./routes/index');
 const itemsRoute = require('./routes/items.js');

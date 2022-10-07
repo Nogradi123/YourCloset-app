@@ -3,7 +3,7 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const multer = require('multer');
 
 cloudinaryPKG.config({
-    cloud_name: "nickycloudinary",
+    cloud_name: "dgbgedzns",
     api_key: process.env.CLOUDAPI,
     api_secret: process.env.CLOUDSECRET
   });
