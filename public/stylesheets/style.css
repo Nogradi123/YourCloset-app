@@ -3,7 +3,7 @@
 body {
   margin: 0;
   background-color: #FCFCFC;
-  color: rgb(4, 3, 3);
+  color: #330052;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -26,6 +26,9 @@ header h1 {
   text-align: center;
 }
 
+h3 {
+  font-size: 15px;
+}
 
 header button {
   background-color: #FF19CF;
@@ -48,6 +51,30 @@ header button {
   }
 
 header button:hover {
+  box-shadow: rgba(47, 1, 68, 0.787) 0 -25px 18px -14px inset, rgba(79, 6, 73, 0.25) 0 1px 2px, rgba(65, 3, 74, 0.692) 0 2px 4px, rgba(64, 1, 115, 0.57) 0 4px 8px, rgba(32, 5, 44, 0.25) 0 8px 16px, rgba(27, 3, 31, 0.656) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+button {
+  background-color: #FF19CF;
+  border-radius: 100px;
+  box-shadow: rgba(250, 4, 143, 0.2) 0 -25px 18px -14px inset, rgba(229, 10, 189, 0.15) 0 1px 2px, rgba(230, 16, 191, 0.15) 0 2px 4px, rgba(229, 89, 241, 0.15) 0 4px 8px, rgba(227, 22, 173, 0.15) 0 8px 16px, rgba(233, 35, 177, 0.15) 0 16px 32px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 5px 25px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 14px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
   box-shadow: rgba(47, 1, 68, 0.787) 0 -25px 18px -14px inset, rgba(79, 6, 73, 0.25) 0 1px 2px, rgba(65, 3, 74, 0.692) 0 2px 4px, rgba(64, 1, 115, 0.57) 0 4px 8px, rgba(32, 5, 44, 0.25) 0 8px 16px, rgba(27, 3, 31, 0.656) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }

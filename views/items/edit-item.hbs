@@ -1,3 +1,9 @@
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/items.css" />
+</head>
+
+
 <h2>Edit Item</h2>
 
 <form action="/items/update/{{id}}" method="post">
@@ -33,61 +39,61 @@
 
     {{#if Casual}}
     <label>
-        Casual
         <input type="checkbox" name="category" value="Casual" checked="checked">
+        Casual
     </label>
     {{else}}
     <label>
-        Casual
         <input type="checkbox" name="category" value="Casual">
+        Casual
     </label>
     {{/if}}
     
     {{#if Activewear}}
     <label>
-        Activewear
         <input type="checkbox" name="category" value="Activewear" checked="checked">
+        Activewear
     </label>
     {{else}}
     <label>
-        Activewear
         <input type="checkbox" name="category" value="Activewear">
+        Activewear
     </label>
     {{/if}}
     
     {{#if Goingout}}
     <label>
-        Going Out
         <input type="checkbox" name="category" value="Going Out" checked="checked">
+        Going Out
     </label>
     {{else}}
     <label>
-        Going Out
         <input type="checkbox" name="category" value="Going Out">
+        Going Out
     </label>
     {{/if}}
 
     {{#if Work}}
     <label>
-        Work
         <input type="checkbox" name="category" value="Work" checked="checked">
+        Work
     </label>
     {{else}}
     <label>
-        Work
         <input type="checkbox" name="category" value="Work">
+        Work
     </label>
     {{/if}}
 
     {{#if Formal}}
     <label>
-        Formal
         <input type="checkbox" name="category" value="Formal" checked="checked">
+        Formal
     </label>
     {{else}}
     <label>
-        Formal
         <input type="checkbox" name="category" value="Formal">
+        Formal
     </label>
     {{/if}}
 

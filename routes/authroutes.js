@@ -47,7 +47,7 @@ router.get('/login', (req, res, next)=>{
           console.log("found user", resultFromDB);
           req.session.currentlyLoggedIn = resultFromDB;
 
-          req.flash('success', 'Successfully Logged In as ' + resultFromDB.username);
+          req.flash('success', 'Welcome ' + resultFromDB.username);
           res.redirect('/items/items');
           return;
         } else {

@@ -9,6 +9,9 @@ const outfitSchema = new Schema ({
     category:  [
         { type: Schema.Types.ObjectId, ref: 'Item'},
     ], 
+    newItems:  [
+        { type: Schema.Types.ObjectId, ref: 'Item'},
+    ], 
 }, {
     timestamps: true
 })
