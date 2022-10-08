@@ -84,40 +84,91 @@ router.get('/outfits', (req,res,next) => {
  })
 
 
+// /:outfitId/addOutfit/:id
+router.get('/create/:outfitId', (req,res,next)=>{
+        // Item.findById(req.params.id).then((theItem)=> {
+        //     let newOutfit = [];
+        //     newOutfit.push(theItem.id)
+            
+        //     // allTheItems.forEach((eachItem) => {
+        //     //     if(theItem.includes(eachItem.id)){
+        //     //         newOutfit.push(eachItem);
+        //     //     } 
+        //     // });
 
-router.get('/:id/edit', (req,res,next)=>{
-    Outfit.find()
-    .then((allTheCelebrities) => {
-        Item.findById(req.params.id).then((theMovie)=> {
-            let myCelebrities = [];
-            let otherCelebrities = [];
-            allTheCelebrities.forEach((eachCelebrity) => {
-                if(theMovie.cast.includes(eachCelebrity.id)){
-                    myCelebrities.push(eachCelebrity);
-                } else {
-                    otherCelebrities.push(eachCelebrity)
+        //     res.render('movies/edit-movie', {
+        //         newOutfit: newOutfit,
+        //         // movieID: req.params.movieID
+        //     })
+        // })
+
+        // Outfit.findByIdAndUpdate(req.params.outfitId, { $push: {newOutfit: req.params.id}}, {new: true})
+        //     .then(updatedOutfit => {
+
+            // })
+        Outfit.create({newOutfit: []}).then(newOutfit => {
+            Item.find({owner: req.session.currentlyLoggedIn._id}).then(allItems => {
+                const data = {
+                    outfit: newOutfit,
+                    allItems
                 }
-            });
 
-            res.render('movies/edit-movie', {
-                myCelebrities: myCelebrities,
-                otherCelebrities: otherCelebrities,
-                movieID: req.params.movieID
-            })
-        })
+                console.log({newOutfitData: data});
 
-    })
+                res.render('outfits/outfits', data);
+            }).catch(err => next(err));
+        }).catch(err => next(err));
 })
 
-router.post('/:id/edit', (req,res,next) => {
-    Item.findByIdAndUpdate(req.params.id, {
-        title: req.body.title,
-        genre: req.body.genre,
-        plot: req.body.plot, 
-        cast: req.body.cast
-    }).then(()=> {
-        res.redirect('/movies/movies')
-    })
+router.post('/:id/updated/:outfitId', (req,res,next) => {
+    // Item.findByIdAndUpdate(req.params.id, {
+    //     title: req.body.title,
+    //     genre: req.body.genre,
+    //     plot: req.body.plot, 
+    //     cast: req.body.cast
+    // }).then(()=> {
+    //     res.redirect('/movies/movies')
+    // })
+
+    // Outfit.findByIdAndUpdate(req.params.outfitId, { $push: {newOutfit: req.params.id}}, {new: true})
+    //     .then(updatedOutfit => {
+    //         Item.find({owner: req.session.currentlyLoggedIn._id}).then(allItems => {
+    //             const data = {
+    //                 outfit: updatedOutfit,
+    //                 allItems
+    //             }
+
+    //             console.log({updatedOutfitData: data});
+
+    //             res.render('outfits/outfits', data);
+    //         }).catch(err => next(err));
+    //     }).catch(err => next(err));
+
+
+        Outfit.findById(req.params.outfitId)
+        .then(foundOutfit => {
+            
+            Item.find({owner: req.session.currentlyLoggedIn._id}).then(allItems => {
+                console.log(req.params.id)
+                if(foundOutfit.newOutfit.includes(req.params.id)) {
+                    foundOutfit.pull(req.params.id);
+                } else {
+                    foundOutfit.push(req.params.id);
+                }
+
+                foundOutfit.save().then(updatedOutfit => {
+                    
+                    const data = {
+                        outfit: updatedOutfit,
+                        allItems
+                    }
+    
+                    console.log({updatedOutfitData: data});
+    
+                    res.render('outfits/outfits', data);
+                }).catch(err => next(err));
+            }).catch(err => next(err));
+        }).catch(err => next(err));
 })
 
 

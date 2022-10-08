@@ -1,34 +1,40 @@
 
 <h1>Your Closet</h1>
 
-<div>
+<div class="container text-center">
+    <div class="row">
     {{#each items}}
-        <br>
-        <img width="250px" src="{{image}}">
-        <h3>Item Name: {{this.itemName}}</h3>
-        <h3>Item Type: {{this.type}}</h3>
-        <h3>Size: {{this.size}}</h3>
-        <h3>Color: {{this.color}}</h3>
-        <h3>Brand: {{this.brand}}</h3>
-        <h3>Color: {{this.color}}</h3>
-        <h3>Description: {{this.description}}</h3>
-        <h3>Category: {{this.category}}</h3>
+        <div class="col">
+            <br>
+            <img width="250px" src="{{image}}">
+            <h3>Item Name: {{this.itemName}}</h3>
+            <h3>Item Type: {{this.type}}</h3>
+            <h3>Size: {{this.size}}</h3>
+            <h3>Color: {{this.color}}</h3>
+            <h3>Brand: {{this.brand}}</h3>
+            <h3>Color: {{this.color}}</h3>
+            <h3>Description: {{this.description}}</h3>
+            <h3>Category: {{this.category}}</h3>
 
-        <br>
-        
-        <button>
-            <a class="edit" href="/items/{{id}}/edit">Edit</a>
-        </button>
-        
-        <br>
-        <br>
-        
-        <form action="/items/{{this.id}}/delete" method="post">
-            <button class="delete" type="submit">Delete</button>
-        </form>
-        
-        <br>
+            <br>
+            
+            <button>
+                <a class="edit" href="/items/{{id}}/edit">Edit</a>
+            </button>
+            
+            <br>
+            <br>
+            
+            <form action="/items/{{this.id}}/delete" method="post">
+                <button class="delete" type="submit">Delete</button>
+            </form>
+            
+            <br>
+
+        </div>
     {{/each}}
+
+    </div>
 
 </div>
 
