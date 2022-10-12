@@ -7,20 +7,16 @@
 
 <div class="item-feed">
     {{#if theUser}}
+    <form action="/outfits/create" method="post">
+        <button>Add Item to Outfit</button>
         {{#each allItems}}
+        <div>
             <img width="200px" height="220px" src="{{image}}">
-            <form action="/outfits/{{_id}}/updated/{{../outfit._id}}" method="post">
-                <button>Add Item to Outfit</button>
-            </form>
-            <br>
-            <form action="{{_id}}" method="post">
-                <button class="delete-btn">Delete</button>
-            </form>
-            <br>
-
+            <input type="hidden" value="{{owner}}" name="owner">
+            <input type="checkbox" value="{{_id}}" name="items">
+        </div>
         {{/each}}
+    </form>
     {{/if}}
-
-
 </div>
 

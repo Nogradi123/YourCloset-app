@@ -4,5 +4,10 @@
 </head>
 
 <h2>Your Outfits</h2>
+{{#each allOutfits}}
+    {{this}}
+    <img width="200px" height="220px" src="{{this.image}}">
+    <h3>Item Name: {{this.itemName}}</h3>
+{{/each}}
 
-{{this}}
+

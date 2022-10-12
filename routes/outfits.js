@@ -1,117 +1,55 @@
 const express = require('express');
+const { reset } = require('nodemon');
 const router = express.Router();
 const Item = require('../models/Item');
 const Outfit = require('../models/Outfit');
 const User = require('../models/User');
 
 
-// router.get('/create', (req, res, next) => {
-    
-//     Item.find(req.params.id)
-//     .then((itemsFromDb) => {
-
-//         data = {
-//             items: itemsFromDb
-//         }
-
-//         res.render('outfits/outfit-details', data)
-//     }).catch((err) => {
-//         res.redirect('/outfits')
-//     })
-// })
-
-// router.post('/create', (req,res,next) => {
-//     console.log(req.body)
-
-//     const itemsToCreate = {
-//         title: req.body.title,
-//         genre: req.body.genre,
-//         plot: req.body.plot, 
-//         cast: req.body.cast
-//     }
-
-
-//     Item.create(moviesToCreate).then(newlyCreatedMovie => {
-//         // console.log(newlyCreatedMovie)
-        
-//         res.redirect('/outfits/create')
-//     }).catch((err) => {
-//         console.log({err})
-//     })
-// })
-
-router.get('/outfits', (req,res,next) => {
-    // console.log({query: req.query})
-   
-    Item.find(req.params.id)
-    .then((itemsFromDb) => {
-        
-        data = {
-            items: itemsFromDb
-         }
-    
-        res.render('outfits/outfits', data)
-    }).catch((err) => {
-        console.log(err)
-        res.redirect('/outfits')
-     })
-})
-
-
-
 // /:outfitId/addOutfit/:id
-router.get('/create', async (req,res,next)=>{
+router.get('/create',(req,res,next)=>{
     if(!req.session.currentlyLoggedIn) {
         res.redirect('/login')
     }
-        // Item.findById(req.params.id).then((theItem)=> {
-        //     let newOutfit = [];
-        //     newOutfit.push(theItem.id)
-            
-        //     // allTheItems.forEach((eachItem) => {
-        //     //     if(theItem.includes(eachItem.id)){
-        //     //         newOutfit.push(eachItem);
-        //     //     } 
-        //     // });
 
-        //     res.render('movies/edit-movie', {
-        //         newOutfit: newOutfit,
-        //         // movieID: req.params.movieID
-        //     })
-        // })
-
-        // Outfit.findByIdAndUpdate(req.params.outfitId, { $push: {newOutfit: req.params.id}}, {new: true})
-        //     .then(updatedOutfit => {
-
-            // })
-
-        const theOutfit = await !!req.query.outfitId ? Outfit.findById(req.query.outfitId) : Outfit.create({newOutfit: []})
-
-        theOutfit.then(outfitToDisplay => {
-
-            Item.find({owner: req.session.currentlyLoggedIn._id}).then(allItems => {
-                const data = {
-                    outfit: outfitToDisplay,
-                    allItems
-                }
-
-                console.log({newOutfitData: outfitToDisplay});
-
-                res.render('outfits/outfit-details', data);
-            }).catch(err => res.redirect('/outfits'));
-
-        }).catch(err => res.redirect('/outfits'));
+    Item.find()
+    .then(allItems => {
+        res.render("outfits/createOutfit", {allItems: allItems})
+    }).catch(err => {
+        console.log(err)
+    })
+    
 })
 
-router.post('/:id/updated/:outfitId', (req,res,next) => {
-    // Item.findByIdAndUpdate(req.params.id, {
-    //     title: req.body.title,
-    //     genre: req.body.genre,
-    //     plot: req.body.plot, 
-    //     cast: req.body.cast
-    // }).then(()=> {
-    //     res.redirect('/movies/movies')
-    // })
+router.post('/create', (req,res,next) => {
+    console.log(req.body)
+
+    const outfitToCreate = {
+        items: req.body.items,
+        owner: req.body.owner[0]
+    }
+
+    Outfit.create(outfitToCreate)
+    .then(newlyCreatedOutfit => {
+        User.findById(req.session.currentlyLoggedIn._id)
+        .then((theUserObject)=>{
+            console.log(theUserObject);
+            Outfit.findByIdAndUpdate(theUserObject.outfits, {
+                $push: {items: newlyCreatedOutfit},
+            })
+            .then((updatedOufit)=>{
+                res.redirect(`/outfits/outfits`);
+            })
+        })
+    }).catch(err => {
+        console.log({err});
+    })
+
+    router.get("/outfits", (req,res,next) => {
+        Outfit.find({owner: req.session.currentlyLoggedIn._id}).populate('items').then(allOutfits => {
+            res.render('outfits/outfits', {allOutfits: allOutfits})
+        })
+    })
 
     // Outfit.findByIdAndUpdate(req.params.outfitId, { $push: {newOutfit: req.params.id}}, {new: true})
     //     .then(updatedOutfit => {
@@ -128,57 +66,32 @@ router.post('/:id/updated/:outfitId', (req,res,next) => {
     //     }).catch(err => next(err));
 
 
-        Outfit.findById(req.params.outfitId)
-        .then(foundOutfit => {
+        // Outfit.findById(req.params.outfitId)
+        // .then(foundOutfit => {
             
-            Item.find({owner: req.session.currentlyLoggedIn._id}).then(allItems => {
-                console.log(req.params.id)
-                if(foundOutfit.newOutfit.includes(req.params.id)) {
-                    foundOutfit.newOutfit.pull(req.params.id);
-                } else {
-                    foundOutfit.newOutfit.push(req.params.id);
-                }
+        //     Item.find({owner: req.session.currentlyLoggedIn._id}).then(allItems => {
+        //         console.log({items: req.params.id})
+        //         console.log({issue:foundOutfit.allItems})
+        //         if(foundOutfit.newItems.includes(req.params.id)) {
+        //             foundOutfit.newItems.pull(req.params.id);
+        //         } else {
+        //             foundOutfit.newItems.push(req.params.id);
+        //         }
 
-                foundOutfit.save().then(updatedOutfit => {
+        //         foundOutfit.save().then(updatedOutfit => {
                     
-                    const data = {
-                        outfit: updatedOutfit,
-                        allItems
-                    }
+        //             const data = {
+        //                 outfit: updatedOutfit,
+        //                 allItems
+        //             }
     
-                    console.log({updatedOutfitData: data});
-    
-                    res.render(`outfits/outfit-details?outfitId=${updatedOutfit._id}`, data);
-                }).catch(err => next(err));
-            }).catch(err => next(err));
-        }).catch(err => next(err));
+        //             console.log({updatedOutfitData: data.allItems});
+        //             // ?outfitId=${updatedOutfit._id}
+        //             res.render(`outfits/outfit-details?outfitId=${updatedOutfit._id}`, data);
+        //         }).catch(err => next(err));
+        //     }).catch(err => next(err));
+        // }).catch(err => next(err));
 })
-
- router.get('/:id', (req,res,next) => {
-    console.log(req.params.id)
-    
-
-    Item.findById(req.params.id).populate('cast')
-    .then((movieFromDb) => {
-        User.find({likes: req.params.id}).then((usersWhoLiked) => {
-            res.render('movies/movie-details', {movie: movieFromDb, likes: usersWhoLiked.length});
-        })
-        
-    }).catch((err) => {
-        console.log(err)
-    })
- })
-
-
- router.post('/:id', (req,res,next)=>{
-    Item.findByIdAndRemove(req.params.id)
-    .then(()=> {
-        res.redirect('/movies/movies')
-    })
-    .catch((err) => {
-        console.log(err)
-    })
- })
 
 
 
