@@ -3,12 +3,6 @@ const {Schema, model } = mongoose
 
 const outfitSchema = new Schema ({
     name: String,
-    // image:  [
-    //     { type: Schema.Types.ObjectId, ref: 'Item'},
-    // ],
-    // category:  [
-    //     { type: Schema.Types.ObjectId, ref: 'Item'},
-    // ], 
     items:  [
         { type: Schema.Types.ObjectId, ref: 'Item'},
     ], 

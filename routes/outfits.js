@@ -36,6 +36,7 @@ router.post('/create', (req,res,next) => {
             console.log(theUserObject);
             Outfit.findByIdAndUpdate(theUserObject.outfits, {
                 $push: {items: newlyCreatedOutfit},
+                
             })
             .then((updatedOufit)=>{
                 res.redirect(`/outfits/outfits`);
@@ -45,11 +46,34 @@ router.post('/create', (req,res,next) => {
         console.log({err});
     })
 
+    })
+
+
     router.get("/outfits", (req,res,next) => {
-        Outfit.find({owner: req.session.currentlyLoggedIn._id}).populate('items').then(allOutfits => {
+        Outfit.find({owner: req.session.currentlyLoggedIn._id}).populate('items').populate('owner').then(allOutfits => {
             res.render('outfits/outfits', {allOutfits: allOutfits})
         })
     })
+//==== delete outfits=======
+    router.post('/:id/delete', (req, res, next)=>{
+
+    Outfit.findByIdAndRemove(req.params.id)
+    .then((response)=>{
+        res.redirect('/outfits/outfits');
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+
+});
+
+//==== delete items inside an outfit=======
+ 
+
+
+
+
+
 
     // Outfit.findByIdAndUpdate(req.params.outfitId, { $push: {newOutfit: req.params.id}}, {new: true})
     //     .then(updatedOutfit => {
@@ -91,7 +115,7 @@ router.post('/create', (req,res,next) => {
         //         }).catch(err => next(err));
         //     }).catch(err => next(err));
         // }).catch(err => next(err));
-})
+
 
 
 

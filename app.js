@@ -63,9 +63,9 @@ const itemsRoute = require('./routes/items.js');
 const outfitsRoute = require('./routes/outfits.js');
 const authroutes = require('./routes/authroutes');
 
+app.use('/outfits', outfitsRoute);
 app.use('/', index);
 app.use('/items', itemsRoute);
-app.use('/outfits', outfitsRoute);
 app.use('/', authroutes)
 
 

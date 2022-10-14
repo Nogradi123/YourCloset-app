@@ -5,9 +5,25 @@
 
 <h2>Your Outfits</h2>
 {{#each allOutfits}}
-    {{this}}
-    <img width="200px" height="220px" src="{{this.image}}">
-    <h3>Item Name: {{this.itemName}}</h3>
+<div class="container text-center">
+    <div class="row">
+{{#each items}}
+<div class="col">
+<form action="/outfits/{{this.id}}/delete" method="post">
+    <button type="button" class="btn-close">
+        <span class="icon-cross"></span>
+        <span class="visually-hidden">Close</span>
+    </button>
+</form>
+    <img width="200px" height="220px" src="{{image}}">
+    <h3>Item Name: {{itemName}}</h3>
+</div>
 {{/each}}
-
+</div>
+</div>
+<form action="/outfits/{{this.id}}/delete" method="post">
+    <center><button class="delete-btn" type="submit">Delete</button></center>
+</form>
+<hr>
+{{/each}}
 
