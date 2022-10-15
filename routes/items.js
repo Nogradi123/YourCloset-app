@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Items = require('../models/Item');
 const uploadMiddleware = require('../config/cloudinary');
-const User = require('../models/User')
+const User = require('../models/User');
+const { timers } = require('jquery');
 
 router.get('/create', (req, res, next) => {
     res.render('items/new-item', {type: ["T-Shirt", "Footwear", "Jewelry", "Dress", "Short", "Skirt", "Romper", "Jacket", "Coat", "Sweater", "Pant", "Jean", "Accessories"]})
@@ -117,5 +118,18 @@ router.get('/items/:sort', (req,res,next) => {
         next(err);
     })
 })
+
+
+//=====Filtering======
+
+router.get('/filter', (req, res, next) => {
+    res.render('items/items', {type: ["T-Shirt", "Footwear", "Jewelry", "Dress", "Short", "Skirt", "Romper", "Jacket", "Coat", "Sweater", "Pant", "Jean", "Accessories"]})
+})
+
+router.post("/filter", (req, res, next) => {
+    Items.find(req.params.id)
+    console.log(req.params.id)
+})
+
 
 module.exports = router;

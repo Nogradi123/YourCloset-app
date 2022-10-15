@@ -7,19 +7,20 @@ body {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-header {
-  background-image: url("../images/Header\ .png"); 
-  height: 40vw;
+.header {
+  width: 100%;
+  height: 80vh;
   display: flex;
-  margin-top: -65px;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  flex-direction: column;
-  padding-top: 13rem;
-  background-repeat: no-repeat;
+  color: white;
   background-size: cover;
-  background-position: center;
-} 
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 
 
 header h1 {

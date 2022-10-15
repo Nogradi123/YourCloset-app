@@ -1,56 +1,49 @@
+.navbar-brand {
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+
+.navbar-custom {
+    background-color: #330052;
+}
+
 body {
-    margin: 0;
-    background-color: #FCFCFC;
-    background-image: url("../images/Header\ .png");
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+    margin-top: 40px;
     color: #330052;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    ;
 }
 
-.header {
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+h3 {
+    font-size: 14px;
+    color: #330052;
+}
+
+.col-sm img {
+    width: 200px;
+    height: 220px;
+    margin-bottom: 10px;
+    align-content: center;
+}
+
+.col-sm {
+   
+    text-align: left;
+   
+}
+
+
+.edit {
     color: white;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-header h1 {
-    margin-top: 35px;
-    color: white;
-    font-size: 55px;
-    text-align: center;
-    align-items: center;
-}
-
-header button {
-    background-color: #FF19CF;
-    border-radius: 100px;
-    box-shadow: rgba(250, 4, 143, 0.2) 0 -25px 18px -14px inset, rgba(229, 10, 189, 0.15) 0 1px 2px, rgba(230, 16, 191, 0.15) 0 2px 4px, rgba(229, 89, 241, 0.15) 0 4px 8px, rgba(227, 22, 173, 0.15) 0 8px 16px, rgba(233, 35, 177, 0.15) 0 16px 32px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 12px 30px;
-    margin: 20px;
-    text-align: center;
     text-decoration: none;
-    transition: all 250ms;
-    border: 0;
-    font-size: 20px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-header button:hover {
-    box-shadow: rgba(47, 1, 68, 0.787) 0 -25px 18px -14px inset, rgba(79, 6, 73, 0.25) 0 1px 2px, rgba(65, 3, 74, 0.692) 0 2px 4px, rgba(64, 1, 115, 0.57) 0 4px 8px, rgba(32, 5, 44, 0.25) 0 8px 16px, rgba(27, 3, 31, 0.656) 0 16px 32px;
-    transform: scale(1.05) rotate(-1deg);
 }
 
 button {
@@ -66,7 +59,7 @@ button {
     text-decoration: none;
     transition: all 250ms;
     border: 0;
-    font-size: 18px;
+    font-size: 14px;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -77,14 +70,78 @@ button:hover {
     transform: scale(1.05) rotate(-1deg);
 }
 
-.navbar-brand {
-    color: white;
+.delete-btn {
+    background-color: #6a0082;
+    border-radius: 100px;
+    box-shadow: rgba(250, 4, 143, 0.2) 0 -25px 18px -14px inset, rgba(229, 10, 189, 0.15) 0 1px 2px, rgba(230, 16, 191, 0.15) 0 2px 4px, rgba(229, 89, 241, 0.15) 0 4px 8px, rgba(227, 22, 173, 0.15) 0 8px 16px, rgba(233, 35, 177, 0.15) 0 16px 32px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 14px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
-.nav-link {
-    color: white;
+.delete-btn:hover {
+    box-shadow: rgba(47, 1, 68, 0.787) 0 -25px 18px -14px inset, rgba(79, 6, 73, 0.25) 0 1px 2px, rgba(65, 3, 74, 0.692) 0 2px 4px, rgba(64, 1, 115, 0.57) 0 4px 8px, rgba(32, 5, 44, 0.25) 0 8px 16px, rgba(27, 3, 31, 0.656) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
 }
 
-.navbar-custom {
-    background-color: #330052;
+.row {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }

@@ -42,6 +42,12 @@ h3 {
     line-height: 1;
 }
 
+
+.edit{
+    color: white;
+    text-decoration: none;
+}
+
 button {
     background-color: #FF19CF;
     border-radius: 100px;

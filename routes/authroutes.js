@@ -19,9 +19,36 @@ router.post('/signup', (req,res,next) => {
       console.log(`Password hash: ${hashedPassword}`);
       User.create({
         username: req.body.username,
-        password: hashedPassword
+        password: hashedPassword,
+        email: req.body.email
+    }).then((newUser)=>{
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        auth: {
+          user: 'romina@code-art.com',
+          pass: process.env.GMAILPASS
+        }
+      });
+      
+      var mailOptions = {
+        from: 'hellocloset@info.com',
+        to: newUser.email,
+        subject: 'automated email sent with nodemailer',
+        html: `<p>Thank you for signing up. Your username is ${newUser.username}</p>`
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+          req.flash('success', 'Successfully Signed Up');
+          req.session.currentlyLoggedIn = newUser;
+          res.redirect('/profile');
+        }
+      });
     })
-      res.redirect('/')
     })
     .catch(error => next(error));
 });
