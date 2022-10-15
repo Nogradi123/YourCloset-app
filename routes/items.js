@@ -96,4 +96,26 @@ router.post('/:id/delete', (req, res, next)=>{
 
 });
 
+router.get('/items/:sort', (req,res,next) => {
+    let sortBy;
+    if(req.params.sort === "recent"){
+        sortBy = -1;
+    } else {
+        sortBy = 1;
+    }
+
+    Items.find().sort({createdAt: sortBy})
+    .then((itemsFromDb) => {
+        data = {
+            items: itemsFromDb,
+            recent: req.params.sort === "recent"? true : false
+        }
+
+        res.render("items/items", data)
+    }).catch(err => {
+        console.log(err);
+        next(err);
+    })
+})
+
 module.exports = router;

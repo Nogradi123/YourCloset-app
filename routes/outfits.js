@@ -67,54 +67,65 @@ router.post('/create', (req,res,next) => {
 
 });
 
-//==== delete items inside an outfit=======
- 
+//==== delete items inside an outfit=======  
 
+router.post('/:itemId/removeItem/:outfitId', (req, res, next)=>{
+    console.log({items: req.params.itemId})
+    console.log({outfit: req.params.outfitId})
 
+    Outfit.findByIdAndUpdate(req.params.outfitId, {
+        $pull: {items: req.params.itemId}
+    })
+    .then((response) => {
+        res.redirect('/outfits/outfits')
+    }).catch((err) => {
+        console.log(err)
+    })
 
+});
 
+// ******* working on getting this working *********
+// router.get('/outfits/:sort/:outfitId', (req,res,next) => {
+//     let sortBy;
+//     if(req.params.sort === "recent"){
+//         sortBy = -1;
+//     } else {
+//         sortBy = 1;
+//     }
 
+//     Outfit.findById(req.params.outfitId).sort({createdAt: sortBy})
+//     .then((outfitsFromDb) => {
+//         data = {
+//             outfits: outfitsFromDb,
+//             recent: req.params.sort === "recent"? true : false
+//         }
 
-    // Outfit.findByIdAndUpdate(req.params.outfitId, { $push: {newOutfit: req.params.id}}, {new: true})
-    //     .then(updatedOutfit => {
-    //         Item.find({owner: req.session.currentlyLoggedIn._id}).then(allItems => {
-    //             const data = {
-    //                 outfit: updatedOutfit,
-    //                 allItems
-    //             }
+//         res.render("outfits/outfits", data)
+//     }).catch(err => {
+//         console.log(err);
+//         next(err);
+//     })
+// })
 
-    //             console.log({updatedOutfitData: data});
-
-    //             res.render('outfits/outfits', data);
-    //         }).catch(err => next(err));
-    //     }).catch(err => next(err));
-
-
-        // Outfit.findById(req.params.outfitId)
-        // .then(foundOutfit => {
-            
-        //     Item.find({owner: req.session.currentlyLoggedIn._id}).then(allItems => {
-        //         console.log({items: req.params.id})
-        //         console.log({issue:foundOutfit.allItems})
-        //         if(foundOutfit.newItems.includes(req.params.id)) {
-        //             foundOutfit.newItems.pull(req.params.id);
-        //         } else {
-        //             foundOutfit.newItems.push(req.params.id);
-        //         }
-
-        //         foundOutfit.save().then(updatedOutfit => {
-                    
-        //             const data = {
-        //                 outfit: updatedOutfit,
-        //                 allItems
-        //             }
+router.get('/like/:outfitId', (req,res,next) => {
+    console.log(req.params.outfitId)
     
-        //             console.log({updatedOutfitData: data.allItems});
-        //             // ?outfitId=${updatedOutfit._id}
-        //             res.render(`outfits/outfit-details?outfitId=${updatedOutfit._id}`, data);
-        //         }).catch(err => next(err));
-        //     }).catch(err => next(err));
-        // }).catch(err => next(err));
+
+    Outfit.findById(req.params.outfitId).populate('items')
+    .then((outfitsFromDb) => {
+        User.find({likes: req.params.outfitId}).then((usersWhoLiked) => {
+            res.render('outfits/outfits', {outfits: outfitsFromDb, likes: usersWhoLiked.length});
+        })
+        
+    }).catch((err) => {
+        console.log(err)
+    })
+ })
+
+
+
+
+
 
 
 

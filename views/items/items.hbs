@@ -17,6 +17,16 @@
 
 <h2><center>Your Closet</center></h2>
 
+{{#if recent}}
+<a href="/items/items/notRecent">
+    <button type="button">Sort By Longest Tenured</button>
+</a>
+{{else}}
+<a href="/items/items/recent">
+    <button type="button">Sort By Most Recent</button>
+</a>
+{{/if}}
+
 <div class="container text-center">
     <div class="row">
     {{#each items}}

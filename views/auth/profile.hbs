@@ -21,8 +21,10 @@
     <br>
     <hr>
     {{#each theUser.likes}}
-        <h3>Title: {{title}}</h3>
-        <h3>Genre: {{genre}}</h3>
+        {{#each items}}
+            <img width="200px" height="220px" src="{{image}}">
+            <h3>ItemName: {{itemName}}</h3>
+        {{/each}}
     {{/each}}
 </div>
 

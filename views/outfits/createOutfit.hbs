@@ -4,18 +4,32 @@
 </head>
 
 <h2>Create an Outfit</h2>
+    <!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
 
-<div class="item-feed">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
+
     {{#if theUser}}
     <form action="/outfits/create" method="post">
         <button>Add Item to Outfit</button>
-        {{#each allItems}}
-        <div>
-            <img width="200px" height="220px" src="{{image}}">
-            <input type="hidden" value="{{owner}}" name="owner">
-            <input type="checkbox" value="{{_id}}" name="items">
-        </div>
-        {{/each}}
+            <div class = "scrollmenu">
+            {{#each allItems}}
+                <img width="200px" height="220px" src="{{image}}">
+                <input type="hidden" value="{{owner}}" name="owner">
+                <input type="checkbox" value="{{_id}}" name="items">
+            <br>
+            {{/each}}
+            </div>
     </form>
     {{/if}}
 </div>

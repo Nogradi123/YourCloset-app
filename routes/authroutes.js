@@ -70,16 +70,16 @@ router.get('/login', (req, res, next)=>{
     })
   })
 
-  router.post('/like/:id', (req, res, next)=>{
+  router.post('/like/:outfitId', (req, res, next)=>{
 
-    let ids = req.params.id;
+    let ids = req.params.outfitId;
     console.log({id_I_want: ids})
 
         User.findByIdAndUpdate(req.session.currentlyLoggedIn._id, 
           {$addToSet: {likes: ids}})
             .then((result)=>{
               console.log(result)
-                res.redirect('/profile');
+                res.redirect('/outfits/outfits');
             })
             .catch((err)=>{
                 console.log(err)
