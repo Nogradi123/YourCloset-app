@@ -1,3 +1,4 @@
+
 .navbar-brand {
     color: white;
 }
@@ -16,10 +17,13 @@ body {
 }
 
 h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 40px;
     color: #330052;
     font-weight: 600;
-    ;
+    margin-bottom: 3rem;
 }
 
 h3 {
@@ -145,3 +149,4 @@ button:hover {
     text-decoration: none;
     cursor: pointer;
 }
+

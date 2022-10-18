@@ -13,7 +13,7 @@
   <body>
 
 
-     <nav class="navbar navbar-custom navbar-expand-lg">
+<nav class="navbar navbar-custom navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="/"><img src="/images/Hello Closet!.png" alt="logo" width="125px"></a>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -45,23 +45,17 @@
         </li>
         <li class="nav-item">
             {{#if theUser}}
-              <a class="nav-link"href='/outfits/create'>Create Outfits</a> 
-            {{/if}}
-        </li>
-        <li class="nav-item">
-            {{#if theUser}}
               <a class="nav-link"href='/outfits/outfits'>Your Outfits</a> 
             {{/if}}
         </li>
-        <li class="nav-item">
+      </ul>
+      
+    </div>
           {{#if theUser}}
-          <form action="/logout" method="post">
+          <form class= "d-flex" action="/logout" method="post">
               <button>Logout</button>
           </form>
           {{/if}}
-        </li>
-      </ul>
-    </div>
   </div>
 </nav>
 

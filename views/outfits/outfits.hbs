@@ -5,17 +5,21 @@
 
 <h2>Your Outfits</h2>
 
-{{!-- button not working yet --}}
-{{#if recent}}
-<a href="/outfits/outfits/notRecent/{{this.id}}">
-    <button type="button">Sort By Longest Tenured</button>
-</a>
-{{else}}
-<a href="/outfits/outfits/recent/{{this.id}}">
-    <button type="button">Sort By Most Recent</button>
-</a>
-{{/if}}
+<div>
+    <button id="createOutfit">Create Outfit</button>
 
+    {{!-- button not working yet --}}
+    {{#if recent}}
+    <a href="/outfits/outfits/notRecent/{{this.id}}">
+        <button type="button">Sort By Longest Tenured</button>
+    </a>
+    {{else}}
+    <a href="/outfits/outfits/recent/{{this.id}}">
+        <button type="button">Sort By Most Recent</button>
+    </a>
+    {{/if}}
+
+</div>
 
 
 {{#each allOutfits}}
@@ -31,19 +35,20 @@
              <span class="visually-hidden">Close</span>
         </button>
     </form>
-    <img width="150px" height="220px" src="{{image}}">
+    <img width="100px" height="200px" src="{{image}}">
     </div>
     </div>
 {{/each}}
 </div>
 </div>
-<form action="/outfits/{{this.id}}/delete" method="post">
-    <button class="delete-btn" type="submit">Delete</button></
-</form>
-<form action="/like/{{id}}" method="post">
-    <button>👍🏼</button>
-</form>
-<br>
-<hr>
+    <form action="/outfits/{{this.id}}/delete" method="post">
+        <button class="delete-btn" type="submit">Delete</button></
+    </form>
+    <form action="/like/{{id}}" method="post">
+        <button>👍🏼</button>
+    </form>
+    <br>
+    <hr>
 {{/each}}
+
 

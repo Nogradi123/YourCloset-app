@@ -84,7 +84,7 @@ router.post('/:itemId/removeItem/:outfitId', (req, res, next)=>{
 
 });
 
-// ******* working on getting this working *********
+// ******* working on getting this working*********
 // router.get('/outfits/:sort/:outfitId', (req,res,next) => {
 //     let sortBy;
 //     if(req.params.sort === "recent"){

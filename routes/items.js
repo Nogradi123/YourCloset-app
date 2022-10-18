@@ -7,7 +7,7 @@ const { timers } = require('jquery');
 
 router.get('/create', (req, res, next) => {
     res.render('items/new-item', {type: ["T-Shirt", "Footwear", "Jewelry", "Dress", "Short", "Skirt", "Romper", "Jacket", "Coat", "Sweater", "Pant", "Jean", "Accessories"]})
-})
+});
 
 
 router.post('/create', uploadMiddleware.single("itemIMG"), (req, res, next) => {
@@ -32,6 +32,7 @@ router.post('/create', uploadMiddleware.single("itemIMG"), (req, res, next) => {
                  console.log({err});
             })
 });
+
 
 
 

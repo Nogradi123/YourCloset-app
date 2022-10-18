@@ -3,22 +3,9 @@
     <link rel="stylesheet" href="/stylesheets/items.css" />
 </head>
 
-<h2>Create an Outfit</h2>
-    <!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
-
-</div>
 
 
+<div>
     {{#if theUser}}
     <form action="/outfits/create" method="post">
         <button>Add Item to Outfit</button>
