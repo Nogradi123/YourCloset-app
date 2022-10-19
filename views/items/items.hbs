@@ -17,9 +17,9 @@
 
 <h2><center>Your Closet</center></h2>
 <br>
-<form class="filter-item" action="/items/filter" method="post" enctype="multipart/form-data">
+<form class="filter-item" action="/items/filter" method="get">
 <label>Filter by Item Type:</label>
-    <select name="type">   
+    <select name="type">  
         <option value="T-Shirt">T-Shirt</option>
         <option value="Dress">Dress</option>
         <option value="Pant">Pant</option>
@@ -34,10 +34,7 @@
         <option value="Jewelry">Jewelry</option>
         <option value="Accessories">Accessories</option>
     </select>
-    
-    <form action="/items/filter" method="post">
-                <button class="delete-btn" type="submit">filter</button>
-    </form>
+    <button class="filter-btn" type="submit">filter</button>
 </form>
 <br>
 

@@ -6,7 +6,9 @@
 <h2>Your Outfits</h2>
 
 <div>
-    <button id="createOutfit">Create Outfit</button>
+    <button>
+        <a class="create" href="/outfits/create">Create Outfit</a>
+    </button>
 
     {{!-- button not working yet --}}
     {{#if recent}}
@@ -42,7 +44,7 @@
 </div>
 </div>
     <form action="/outfits/{{this.id}}/delete" method="post">
-        <button class="delete-btn" type="submit">Delete</button></
+        <button class="delete-btn" type="submit">Delete</button>
     </form>
     <form action="/like/{{id}}" method="post">
         <button>👍🏼</button>

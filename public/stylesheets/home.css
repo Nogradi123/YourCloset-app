@@ -1,12 +1,12 @@
 body {
     margin: 0;
-    background-color: #FCFCFC;
-    background-image: url("../images/Header\ .png");
+    /* background-color: #FCFCFC; */
     color: #330052;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .header {
+    background-image: url("../images/Header\ .png");
     width: 100%;
     height: 80vh;
     display: flex;
@@ -87,4 +87,14 @@ button:hover {
 
 .navbar-custom {
     background-color: #330052;
+}
+
+.mid-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display {
+    width: 20vw;
 }

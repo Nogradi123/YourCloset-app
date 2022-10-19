@@ -124,13 +124,21 @@ router.get('/items/:sort', (req,res,next) => {
 //=====Filtering======
 
 router.get('/filter', (req, res, next) => {
-    res.render('items/items', {type: ["T-Shirt", "Footwear", "Jewelry", "Dress", "Short", "Skirt", "Romper", "Jacket", "Coat", "Sweater", "Pant", "Jean", "Accessories"]})
+    console.log(req.query)
+
+    Items.find({type: req.query.type})
+    .then((filteredType)=> {
+        
+        res.render('items/items', {items: filteredType})
+    }).catch(err => {
+        console.log(err)
+    })
 })
 
-router.post("/filter", (req, res, next) => {
-    Items.find(req.params.id)
-    console.log(req.params.id)
-})
+// router.post("/filter/:term", (req, res, next) => {
+//     Items.find(req.params.id)
+//     console.log(req.params.id)
+// })
 
 
 module.exports = router;
