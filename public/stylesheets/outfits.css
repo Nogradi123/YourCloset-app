@@ -31,23 +31,21 @@ h3 {
     color: #330052;
 }
 
-.col-sm img {
-    width: 200px;
-    height: 220px;
-    margin-bottom: 10px;
-    align-content: center;
+
+.col {
+    margin-bottom: 50px;
+    align-items: center;
 }
 
-.col-sm {
-   
-    text-align: left;
-   
-}
-
-
-.edit {
+.create {
     color: white;
     text-decoration: none;
+      
+}
+
+.top-buttons {
+    text-align: center;
+
 }
 
 button {
@@ -72,6 +70,7 @@ button {
 button:hover {
     box-shadow: rgba(47, 1, 68, 0.787) 0 -25px 18px -14px inset, rgba(79, 6, 73, 0.25) 0 1px 2px, rgba(65, 3, 74, 0.692) 0 2px 4px, rgba(64, 1, 115, 0.57) 0 4px 8px, rgba(32, 5, 44, 0.25) 0 8px 16px, rgba(27, 3, 31, 0.656) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
+    cursor: pointer;
 }
 
 .delete-btn {
@@ -91,11 +90,19 @@ button:hover {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    margin: 0px 30px;
 }
 
 .delete-btn:hover {
     box-shadow: rgba(47, 1, 68, 0.787) 0 -25px 18px -14px inset, rgba(79, 6, 73, 0.25) 0 1px 2px, rgba(65, 3, 74, 0.692) 0 2px 4px, rgba(64, 1, 115, 0.57) 0 4px 8px, rgba(32, 5, 44, 0.25) 0 8px 16px, rgba(27, 3, 31, 0.656) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
+}
+
+.buttons-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 .row {
@@ -137,7 +144,7 @@ button:hover {
 
 /* The Close Button */
 .close {
-    color: #aaa;
+    color: rgb(11, 1, 1);
     float: right;
     font-size: 28px;
     font-weight: bold;

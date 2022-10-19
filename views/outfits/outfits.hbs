@@ -5,7 +5,7 @@
 
 <h2>Your Outfits</h2>
 
-<div>
+<div class="top-buttons">
     <button>
         <a class="create" href="/outfits/create">Create Outfit</a>
     </button>
@@ -37,12 +37,13 @@
              <span class="visually-hidden">Close</span>
         </button>
     </form>
-    <img width="100px" height="200px" src="{{image}}">
+    <img width="200" height="220px" src="{{image}}">
     </div>
     </div>
 {{/each}}
 </div>
 </div>
+<div class="buttons-section">
     <form action="/outfits/{{this.id}}/delete" method="post">
         <button class="delete-btn" type="submit">Delete</button>
     </form>
@@ -50,6 +51,7 @@
         <button>👍🏼</button>
     </form>
     <br>
+</div>
     <hr>
 {{/each}}
 

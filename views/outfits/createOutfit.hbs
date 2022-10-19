@@ -1,23 +1,34 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/items.css" />
+    <link rel="stylesheet" href="/stylesheets/outfits.css" />
 </head>
 
 
 
 <div>
+<form action="/outfits/create" method="post">
+<center><button>Add Items to Outfit</button></center>
+</div>
+<br>
+<div class="row">
     {{#if theUser}}
-    <form action="/outfits/create" method="post">
-        <button>Add Item to Outfit</button>
-            <div class = "scrollmenu">
-            {{#each allItems}}
-                <img width="200px" height="220px" src="{{image}}">
+        {{#each allItems}}
+        <div class="col">
+                
                 <input type="hidden" value="{{owner}}" name="owner">
                 <input type="checkbox" value="{{_id}}" name="items">
+                <img width="200px" height="220px" src="{{image}}">
+
+        </div>
+        
+            <br>
             <br>
             {{/each}}
             </div>
     </form>
     {{/if}}
-</div>
+ 
+  
+
+
 
