@@ -3,22 +3,28 @@ body {
     /* background-color: #FCFCFC; */
     color: #330052;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #faf5ff;
 }
 
 
 #intro {
     background-image: url("../images/Header\ .png");
-    height: 100vh;
+    height: 85vh;
+    background-size: cover;
+    background-position: center;
+
 }
 
-
-
 header h1 {
-    margin-top: 35px;
     color: white;
-    font-size: 55px;
+    font-size: 45px;
     text-align: center;
     align-items: center;
+}
+
+h2 {
+    color: white;
+    font-size: 38px;
 }
 
 header button {
@@ -93,5 +99,40 @@ button:hover {
 }
 
 .text-white{
-    margin-top: 300px;
+    margin-top: 120px;
+}
+
+.mid-section {
+    margin: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    text-align: center;
+    align-items: center;
+}
+
+.mid-section div.box {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mid-section img {
+    width: 100px;
+}
+
+.bottom-section {
+    margin: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+}
+
+.bottom-section img {
+    width: 150%;
+    box-shadow: 2px 2px 5px #8c8193;
+   
 }

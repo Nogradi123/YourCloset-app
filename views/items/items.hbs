@@ -17,9 +17,10 @@
 
 <h2><center>Your Closet</center></h2>
 <br>
-<form class="filter-item" action="/items/filter" method="get">
+<center><form class="filter-item" action="/items/filter" method="get">
 <label>Filter by Item Type:</label>
     <select name="type">  
+        <option value="">Choose Type</option>
         <option value="T-Shirt">T-Shirt</option>
         <option value="Dress">Dress</option>
         <option value="Pant">Pant</option>
@@ -35,8 +36,20 @@
         <option value="Accessories">Accessories</option>
     </select>
     <button class="filter-btn" type="submit">Filter</button>
-</form>
+</form></center>
 <br>
+
+
+<div class="top-buttons">
+
+<button>
+    <a class="add" href="/items/create">Add Item</a>
+</button>
+
+<button>
+    <a class="create" href="/outfits/create">Create Outfit</a>
+</button>
+
 
 {{#if recent}}
 <a href="/items/items/notRecent">
@@ -47,6 +60,7 @@
     <button type="button">Sort By Newest</button>
 </a>
 {{/if}}
+</div>
 
 <div class="container text-center">
     <div class="row">

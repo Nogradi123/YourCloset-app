@@ -48,6 +48,10 @@ h3 {
 
 }
 
+.create-btn {
+    margin: 50px 0 60px 0;
+}
+
 button {
     background-color: #FF19CF;
     border-radius: 100px;
@@ -61,7 +65,7 @@ button {
     text-decoration: none;
     transition: all 250ms;
     border: 0;
-    font-size: 14px;
+    font-size: 16px;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -106,8 +110,7 @@ button:hover {
 }
 
 .row {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 50px, 50px;
 }
 
 .modal {

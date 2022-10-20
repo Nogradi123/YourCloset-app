@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="/stylesheets/items.css" />
 </head>
 
-
+<section>
 <h2>Edit Item</h2>
 
 <form action="/items/update/{{id}}" method="post">
@@ -12,6 +12,7 @@
     Item Name:
     <input type="text" name="itemName" value="{{itemName}}">
 </label>
+<br>
 <label>
     Type of Item:
     <select name="type">  
@@ -122,3 +123,4 @@
 <br>
 <button>Edit Item</button>
 </form>
+</section>

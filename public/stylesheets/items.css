@@ -10,8 +10,25 @@
     background-color: #330052;
 }
 
+.top-buttons {
+    text-align: center;
+}
+
+.add {
+    color: white;
+    text-decoration: none;
+
+}
+
+.create {
+    color: white;
+    text-decoration: none;
+
+}
+
 body {
     margin: 0px;
+    background-color: #faf5ff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -37,12 +54,11 @@ h3 {
 .col {
     box-shadow: 2px 2px 5px #8c8193;
     border-radius: 25px;
-    margin: 20px 20px;
+    margin: 20px 40px;
     line-height: 1;
     align-items: center;
-
+    background-color: #fff;
 }
-
 
 .edit{
     color: white;
@@ -62,18 +78,37 @@ button {
     text-decoration: none;
     transition: all 250ms;
     border: 0;
-    font-size: 14px;
+    font-size: 16px;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
 }
 
 button:hover {
-    box-shadow: rgba(47, 1, 68, 0.787) 0 -25px 18px -14px inset, rgba(79, 6, 73, 0.25) 0 1px 2px, rgba(65, 3, 74, 0.692) 0 2px 4px, rgba(64, 1, 115, 0.57) 0 4px 8px, rgba(32, 5, 44, 0.25) 0 8px 16px, rgba(27, 3, 31, 0.656) 0 16px 32px;
+    box-shadow: rgba(47, 1, 68, 0.787) 0 -25px 18px -14px inset, rgba(79, 6, 73, 0.25) 0 1px 2px, rgba(65, 3, 74, 0.692) 0 2px 4px, rgba(64, 1, 115, 0.57) 0 4px 8px, rgba(254, 253, 254, 0.25) 0 8px 16px, rgba(27, 3, 31, 0.656) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
     color: white;
     text-decoration: none;
 }
+
+.filter-btn {
+    background-color: #ffffff;
+    border-radius: 100px;
+    color: #330052;
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0px 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: #330052;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+
 
 .delete-btn {
     background-color: #6a0082;
@@ -106,3 +141,6 @@ button:hover {
     margin-bottom: 50px;
 }
 
+section {
+    margin-left: 50px;
+}
