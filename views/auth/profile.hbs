@@ -11,17 +11,17 @@
     <p>{{theUser.username}}</p>
 </h4>
 
-<br><br>
+<br>
 <h4>Want to change your password?
     <a class = "chg-pass"href="/change-password">Click Here</a>
 </h4>
 <br><br>
 <div>
-    <h4>Favorite Outfits</h4>
+<hr>
+<h2>Favorite Outfits</h2>
     <br>
-    <hr>
     {{#each theUser.likes}}
-        {{#each items}}
+        {{#each items}} 
             <img width="200px" height="220px" src="{{image}}">
             <h3>ItemName: {{itemName}}</h3>
         {{/each}}

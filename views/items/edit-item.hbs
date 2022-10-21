@@ -4,10 +4,16 @@
 </head>
 
 <section>
-<h2>Edit Item</h2>
+<center><h2>Edit Item</h2></center>
+<br>
+
+<section class="mid-section">
+    <div>
+        <img src="/images/rack.png">
+    </div>
+    <div>
 
 <form action="/items/update/{{id}}" method="post">
-
 <label>
     Item Name:
     <input type="text" name="itemName" value="{{itemName}}">
@@ -60,60 +66,60 @@
     <label>
         <input type="checkbox" name="category" value="Casual" checked="checked">
         Casual
-    </label>
+    </label><br>
     {{else}}
     <label>
         <input type="checkbox" name="category" value="Casual">
         Casual
-    </label>
+    </label><br>
     {{/if}}
     
     {{#if Activewear}}
     <label>
         <input type="checkbox" name="category" value="Activewear" checked="checked">
         Activewear
-    </label>
+    </label><br>
     {{else}}
     <label>
         <input type="checkbox" name="category" value="Activewear">
         Activewear
-    </label>
+    </label><br>
     {{/if}}
     
     {{#if Goingout}}
     <label>
         <input type="checkbox" name="category" value="Going Out" checked="checked">
         Going Out
-    </label>
+    </label><br>
     {{else}}
     <label>
         <input type="checkbox" name="category" value="Going Out">
         Going Out
-    </label>
+    </label><br>
     {{/if}}
 
     {{#if Work}}
     <label>
         <input type="checkbox" name="category" value="Work" checked="checked">
         Work
-    </label>
+    </label><br>
     {{else}}
     <label>
         <input type="checkbox" name="category" value="Work">
         Work
-    </label>
+    </label><br>
     {{/if}}
 
     {{#if Formal}}
     <label>
         <input type="checkbox" name="category" value="Formal" checked="checked">
         Formal
-    </label>
+    </label><br>
     {{else}}
     <label>
         <input type="checkbox" name="category" value="Formal">
         Formal
-    </label>
+    </label><br>
     {{/if}}
 
 
@@ -123,4 +129,5 @@
 <br>
 <button>Edit Item</button>
 </form>
+</div>
 </section>

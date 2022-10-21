@@ -9,10 +9,6 @@
     <button>
         <a class="create" href="/outfits/create">Create Outfit</a>
     </button>
-</div>
-
-
-    {{!-- button not working yet --}}
     {{#if recent}}
     <a href="/outfits/outfits/notRecent/{{this.id}}">
         <button type="button">Sort By Longest Tenured</button>
@@ -23,6 +19,11 @@
     </a>
     {{/if}}
 
+</div>
+
+<br>
+    {{!-- button not working yet --}}
+   
 
 {{#each allOutfits}}
     <div class="container text-center">

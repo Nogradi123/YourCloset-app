@@ -141,6 +141,15 @@ button:hover {
     margin-bottom: 50px;
 }
 
-section {
-    margin-left: 50px;
+.mid-section {
+    flex: wrap;
+    display: flex;
+}
+
+.mid-section img{
+    width: 48vw;
+    height: 500px;
+    object-fit: cover;
+    margin: 0px 40px;
+    border-radius: 25px;
 }

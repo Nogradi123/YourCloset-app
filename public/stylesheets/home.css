@@ -133,7 +133,6 @@ button:hover {
     width: 50vw;
     height: 600px;
     object-fit: cover;
-    background-color: rgba(24, 24, 21, 0.7);
 }
 
 
@@ -165,7 +164,9 @@ footer {
     justify-content: space-evenly;
 }
 
-
+.contact ul {
+    list-style-type: none;
+}
  
 
  

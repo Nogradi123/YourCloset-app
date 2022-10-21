@@ -3,9 +3,14 @@
     <link rel="stylesheet" href="/stylesheets/items.css" />
 </head>
 
-<section>
-<h2 class="new-celeb">Add a New Item</h2>
+<center><h2>Add a New Item</h2></center>
 <br>
+
+<section class="mid-section">
+<div>
+    <img src="/images/dude.png">
+</div>
+<div>
 <form class= "new-item-form" action="/items/create" method="post" enctype="multipart/form-data">
 
     <label>
@@ -18,16 +23,14 @@
         <input type="file" name="itemIMG">
     </label>
     <br>
-
     <label>Type of Item:</label>
-
     <select name="type">
         {{#each type}} 
             <option value="{{this}}">{{this}}</option>
         {{/each}}
       
     </select>
-    
+    <br>
     <label>
         Size: 
         <input type="text" name="size">
@@ -79,5 +82,6 @@
     <br>
     <button>Submit</button>
 </form>
+</div>
 </section>
 
