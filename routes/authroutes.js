@@ -4,6 +4,7 @@ const User = require('../models/User');
 const Movie = require('../models/Item');
 const nodemailer = require("nodemailer");
 const bcryptjs = require('bcryptjs');
+const axios = require("axios");
 
 router.get('/signup', (req, res, next) => {
     res.render('auth/signup');
@@ -22,31 +23,29 @@ router.post('/signup', (req,res,next) => {
         password: hashedPassword,
         email: req.body.email
     }).then((newUser)=>{
-      var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        host: 'smtp.gmail.com',
-        auth: {
-          user: process.env.GMAILUSERNAME,
-          pass: process.env.GMAILPASS
-        }
-      });
-      
-      var mailOptions = {
-        from: 'hellocloset@info.com',
-        to: newUser.email,
-        subject: 'automated email sent with nodemailer',
-        html: `<p>Thank you for signing up. Your username is ${newUser.username}</p>`
+      const data = {
+        personalizations:[{to:[{email: req.body.email}],
+        subject:"Thank you for signing up!! " + req.body.username}],
+        from:{email: process.env.GMAILUSERNAME},
+        content:[{type:"text/plain",value:"Hello, World!"}]
+      }
+
+      const options = {
+        method: 'POST',
+        url: 'https://rapidprod-sendgrid-v1.p.rapidapi.com/mail/send',
+        headers: {
+          'content-type': 'application/json',
+          'X-RapidAPI-Key': '7551bd998fmshcd2c2220e76f8e9p1add01jsne453ce90f67f',
+          'X-RapidAPI-Host': 'rapidprod-sendgrid-v1.p.rapidapi.com'
+        },
+        data: JSON.stringify(data)
       };
       
-      transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-          req.flash('success', 'Successfully Signed Up');
-          req.session.currentlyLoggedIn = newUser;
-          res.redirect('/profile');
-        }
+      axios.request(options).then(function (response) {
+        console.log(response);
+        res.redirect("/login");
+      }).catch(function (error) {
+        console.error(error);
       });
     })
     })
