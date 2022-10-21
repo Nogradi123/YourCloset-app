@@ -86,43 +86,48 @@ router.post('/:itemId/removeItem/:outfitId', (req, res, next)=>{
 
 
 
-// ******* working on getting this working*********
-// router.get('/outfits/:sort/:outfitId', (req,res,next) => {
-//     let sortBy;
-//     if(req.params.sort === "recent"){
-//         sortBy = -1;
-//     } else {
-//         sortBy = 1;
-//     }
 
-//     Outfit.findById(req.params.outfitId).sort({createdAt: sortBy})
-//     .then((outfitsFromDb) => {
-//         data = {
-//             outfits: outfitsFromDb,
-//             recent: req.params.sort === "recent"? true : false
-//         }
+router.get('/outfits/:sort/', (req,res,next) => {
+    let sortBy;
+    if(req.params.sort === "recent"){
+        sortBy = -1;
+    } else {
+        sortBy = 1;
+    }
 
-//         res.render("outfits/outfits", data)
-//     }).catch(err => {
-//         console.log(err);
-//         next(err);
-//     })
-// })
+    Outfit.findById().sort({createdAt: sortBy})
+    .then((outfitsFromDb) => {
+        data = {
+            outfits: outfitsFromDb,
+            recent: req.params.sort === "recent"? true : false
+        }
 
-router.get('/like/:outfitId', (req,res,next) => {
-    console.log(req.params.outfitId)
+        res.render("outfits/outfits", data)
+    }).catch(err => {
+        console.log(err);
+        next(err);
+    })
+})
+
+
+
+
+
+// =========== soon to be used feature =================== 
+// router.get('/like/:outfitId', (req,res,next) => {
+//     console.log(req.params.outfitId)
     
 
-    Outfit.findById(req.params.outfitId).populate('items')
-    .then((outfitsFromDb) => {
-        User.find({likes: req.params.outfitId}).then((usersWhoLiked) => {
-            res.render('outfits/outfits', {outfits: outfitsFromDb, likes: usersWhoLiked.length});
-        })
+//     Outfit.findById(req.params.outfitId).populate('items')
+//     .then((outfitsFromDb) => {
+//         User.find({likes: req.params.outfitId}).then((usersWhoLiked) => {
+//             res.render('outfits/outfits', {outfits: outfitsFromDb, likes: usersWhoLiked.length});
+//         })
         
-    }).catch((err) => {
-        console.log(err)
-    })
- })
+//     }).catch((err) => {
+//         console.log(err)
+//     })
+//  })
 
 
 

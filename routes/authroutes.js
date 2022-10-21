@@ -26,7 +26,7 @@ router.post('/signup', (req,res,next) => {
         service: 'gmail',
         host: 'smtp.gmail.com',
         auth: {
-          user: 'romina@code-art.com',
+          user: process.env.GMAILUSERNAME,
           pass: process.env.GMAILPASS
         }
       });
@@ -87,7 +87,13 @@ router.get('/login', (req, res, next)=>{
   
   
   router.get('/profile', (req, res, next)=>{
-    User.findById(req.session.currentlyLoggedIn._id).populate('likes')
+    User.findById(req.session.currentlyLoggedIn._id).populate({ 
+      path: 'likes',
+      populate: {
+        path: 'items',
+        model: 'Item'
+      } 
+   })
     .then((theUser)=>{
       console.log(theUser.id);
       res.render('auth/profile', {theUser: theUser})
