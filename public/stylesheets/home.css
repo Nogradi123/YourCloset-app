@@ -103,7 +103,7 @@ button:hover {
 }
 
 .mid-section {
-    margin: 60px;
+    margin: 130px;
     display: flex;
     justify-content: space-evenly;
     flex-flow: row wrap;
@@ -120,19 +120,52 @@ button:hover {
 }
 
 .mid-section img {
-    width: 100px;
+    width: 130px;
 }
 
-.bottom-section {
-    margin: 60px;
+.bottom-section1 {
+    flex: wrap;
     display: flex;
-    justify-content: space-evenly;
+    border-top: 1px solid #bc9bd0;
+    
+}
+.bottom-section1 img {
+    width: 50vw;
+    height: 600px;
+    object-fit: cover;
+    background-color: rgba(24, 24, 21, 0.7);
+}
+
+
+.blurb {
     text-align: center;
     align-items: center;
+    justify-content: center;
+    margin-top: 25vh;
+    margin-left: 10vw;
+}
+.blurb h2 {
+    color: #330052;
+    width: 355px;
+    font-size: 25px;
+    margin-bottom: 40px;
 }
 
-.bottom-section img {
-    width: 150%;
-    box-shadow: 2px 2px 5px #8c8193;
-   
+footer {
+    padding-top: 50px;
+    color: #faf5ff;
+    background-color: #330052;
+    height: 40vh;
 }
+
+.footer-container {
+    flex: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+ 
+
+ 
