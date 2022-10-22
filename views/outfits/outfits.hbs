@@ -9,12 +9,13 @@
     <button>
         <a class="create" href="/outfits/create">Create Outfit</a>
     </button>
+    
     {{#if recent}}
-    <a href="/outfits/outfits/notRecent/{{this.id}}">
+    <a href="/outfits/outfits/notRecent">
         <button type="button">Sort By Longest Tenured</button>
     </a>
     {{else}}
-    <a href="/outfits/outfits/recent/{{this.id}}">
+    <a href="/outfits/outfits/recent">
         <button type="button">Sort By Most Recent</button>
     </a>
     {{/if}}

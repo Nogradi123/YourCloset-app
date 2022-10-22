@@ -135,10 +135,6 @@ router.get('/filter', (req, res, next) => {
     })
 })
 
-// router.post("/filter/:term", (req, res, next) => {
-//     Items.find(req.params.id)
-//     console.log(req.params.id)
-// })
 
 
 module.exports = router;

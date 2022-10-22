@@ -68,3 +68,7 @@ section {
 hr {
     width: 600px;
 }
+
+.username {
+    display: flex;
+}

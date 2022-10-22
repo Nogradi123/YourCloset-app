@@ -6,19 +6,18 @@
 <section>
 <h2>User Profile</h2>
 
-<h4 class = 'username'>
-    Username: 
-    <p>{{theUser.username}}</p>
+<h4 class="username">
+    Username: <p>{{theUser.username}}</p>
 </h4>
 
 <br>
-<h4>Want to change your password?
+<h5>Want to change your password?
     <a class = "chg-pass"href="/change-password">Click Here</a>
-</h4>
+</h5>
 <br><br>
-<div>
-<hr>
-<h2>Favorite Outfits</h2>
+<div class="favfits">
+    <hr>
+    <h2>Favorite Outfits</h2>
     <br>
     {{#each theUser.likes}}
         {{#each items}} 
@@ -29,6 +28,7 @@
     {{/each}}
 
 </div>
+
 
 </section>
 

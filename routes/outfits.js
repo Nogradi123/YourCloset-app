@@ -87,7 +87,7 @@ router.post('/:itemId/removeItem/:outfitId', (req, res, next)=>{
 
 
 
-router.get('/outfits/:sort/', (req,res,next) => {
+router.get('/outfits/:sort', (req,res,next) => {
     let sortBy;
     if(req.params.sort === "recent"){
         sortBy = -1;
@@ -95,8 +95,9 @@ router.get('/outfits/:sort/', (req,res,next) => {
         sortBy = 1;
     }
 
-    Outfit.findById().sort({createdAt: sortBy})
+    Outfit.find().sort({createdAt: sortBy}).populate('items')
     .then((outfitsFromDb) => {
+        console.log({outfits: outfitsFromDb})
         data = {
             outfits: outfitsFromDb,
             recent: req.params.sort === "recent"? true : false
