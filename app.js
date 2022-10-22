@@ -38,7 +38,7 @@ app.use(
         maxAge: 600000
       }, 
       store: MongoStore.create({
-        mongoUrl: `mongodb+srv://nickdb:${process.env.MONGOPASSWORD}@nickycluster.d24axft.mongodb.net/?retryWrites=true&w=majority`;
+        mongoUrl: `mongodb+srv://nickdb:${process.env.MONGOPASSWORD}@nickycluster.d24axft.mongodb.net/?retryWrites=true&w=majority`
       })
     })
   );
