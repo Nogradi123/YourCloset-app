@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/YourCloset-app";
 
 mongoose
-  .connect(MONGO_URI)
+  .connect(`mongodb+srv://nickdb:${process.env.MONGOPASSWORD}@nickycluster.d24axft.mongodb.net/?retryWrites=true&w=majority`)
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
