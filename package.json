@@ -18,6 +18,7 @@
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "hbs": "^4.1.1",
+    "jquery": "^3.6.1",
     "mocha": "^10.0.0",
     "mongoose": "^6.1.2",
     "morgan": "^1.10.0",
@@ -29,7 +30,6 @@
   },
   "devDependencies": {
     "bootstrap": "^5.2.1",
-    "jquery": "^3.6.1",
     "nodemon": "^2.0.20",
     "popper.js": "^1.16.1"
   },
